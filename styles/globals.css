@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.shop-grid {
+    display: grid;
+    column-gap: 10px;
+    row-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(15.65rem, 16.25rem));
+    grid-template-rows: repeat(auto, 1fr); 
+    justify-content: center;
+  }
+
+
+@media (min-width: 1200px) {
+  .shop-grid {
+      grid-template-columns: repeat(4,minmax(15.65rem, 16.25rem));
+  }
+}
+
+li.slick-active  div {
+  background-color: var(--color-primary);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
