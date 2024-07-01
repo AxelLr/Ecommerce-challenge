@@ -11,7 +11,7 @@ interface TextProps {
 const baseStyles: { [key in keyof JSX.IntrinsicElements]?: string } = {
   h4: "text-2xl font-bold",
   h5: "text-xl font-bold",
-  h6: "font-bold text-gray-500",
+  h6: "font-bold",
   span: "font-medium text-gray-500 text-xs",
   p: "text-base font-medium text-slate",
 };

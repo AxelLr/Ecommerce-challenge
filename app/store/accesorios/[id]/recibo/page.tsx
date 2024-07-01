@@ -40,7 +40,7 @@ export default async function Receipt({
             </Text>
           </div>
           <Separator />
-          <Text className="text-start mb-4" type="h6">
+          <Text className="text-start mb-4" type="h5">
             Productos
           </Text>
           <div className="flex flex-row items-center justify-between">
@@ -51,7 +51,7 @@ export default async function Receipt({
           </div>
 
           <Separator />
-          <Text className="text-start mb-4" type="h6">
+          <Text className="text-start mb-4" type="h5">
             Detalle del pago
           </Text>
           <Text className="text-start">

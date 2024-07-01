@@ -38,7 +38,7 @@ export default async function Receipt({
             </Text>
           </div>
           <Separator />
-          <Text className="text-start mb-1" type="h6">
+          <Text className="text-start mb-1" type="h5">
             {name}
           </Text>
           <Text className="text-lightGray text-start" type="p">
@@ -47,7 +47,7 @@ export default async function Receipt({
           </Text>
 
           <Separator />
-          <Text className="text-start mb-1" type="h6">
+          <Text className="text-start mb-1" type="h5">
             Información del cliente
           </Text>
           <Text className="text-start">

@@ -3,22 +3,28 @@ import { getMotorcycleById } from "../lib/services";
 import Carousel from "@/lib/components/carousel";
 import Text from "@/lib/components/text";
 import Breadcrumbs from "@/lib/components/breadcrumbs";
-import { parseMotorcycle } from "../lib/helpers";
+import { getAccessoriesCotization, parseMotorcycle } from "../lib/helpers";
 import { formatAmount } from "@/lib/utils/helpers";
 import Separator from "@/lib/components/Separator";
 import VersionPicker from "../lib/components/VersionPicker";
 import Link from "next/link";
+import { Suspense } from "react";
+import AccesoriesList from "../lib/components/AccesoriesList";
+import getAccessories from "../../accesorios/lib/services";
 
 export default async function MotorcycleDetails({
   params,
   searchParams,
 }: {
   params: { id: string };
-  searchParams: { variant: string };
+  searchParams: { variant: string; accesorios: string };
 }) {
   const urlVariantId = searchParams.variant;
 
-  const motorcycle = await getMotorcycleById(params.id);
+  const [motorcycle, accessories] = await Promise.all([
+    getMotorcycleById(params.id),
+    getAccessories(),
+  ]);
 
   if (!motorcycle) {
     notFound();
@@ -36,6 +42,9 @@ export default async function MotorcycleDetails({
     details,
     variantId,
   } = parsedMotorcycle;
+
+  const finalPrice =
+    price + getAccessoriesCotization(searchParams, accessories);
 
   return (
     <main className="pt-8 pb-40">
@@ -94,8 +103,25 @@ export default async function MotorcycleDetails({
             })}
           </ul>
           <Separator />
+
+          <Suspense>
+            <AccesoriesList />
+          </Suspense>
+          <div className="flex flex-row justify-between items-center w-full">
+            <Text className="text-black" type="h6">
+              Precio final:
+            </Text>
+            <Text type="h5">ARS {formatAmount(finalPrice)}</Text>
+          </div>
+
+          <Separator />
+
           <Link
-            href={`${params.id}/reserva?variant=${variantId}`}
+            href={`${
+              params.id
+            }/reserva?variant=${variantId}&${new URLSearchParams(
+              searchParams
+            )}`}
             className="bg-primary text-white p-4 rounded-lg w-full disabled:opacity-50 text-center mt-4"
           >
             Siguiente

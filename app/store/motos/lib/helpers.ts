@@ -1,4 +1,6 @@
 import { Motorcycle, Image, ImageFormat, Category } from "./interfaces";
+import { Accessory } from "../../accesorios/lib/interfaces";
+import { parseAccessory } from "../../accesorios/lib/helpers";
 
 export interface ParsedMotorcycle extends Motorcycle {
   sellerName: string;
@@ -47,4 +49,32 @@ export const parseMotorcycle = (
     thumbnail: variant.images[0]?.formats.thumbnail,
     category: motorcycle.categories[0],
   };
+};
+
+export const getAccessoriesCotization = (
+  searchParams: { accesorios: string },
+  accessories: Accessory[]
+): number => {
+  const accessoriesParam = searchParams.accesorios?.split(",") || [];
+
+  const accessoriesAmount = accessoriesParam.reduce(
+    (acc: Record<string, number>, id: string) => {
+      acc[id] = (acc[id] || 0) + 1;
+      return acc;
+    },
+    {}
+  );
+
+  const totalAmount = accessories.reduce(
+    (acc: number, accessory: Accessory) => {
+      const { uuid, price } = parseAccessory(accessory);
+      if (accessoriesAmount[uuid]) {
+        acc += accessoriesAmount[uuid] * price;
+      }
+      return acc;
+    },
+    0
+  );
+
+  return Number(totalAmount);
 };
