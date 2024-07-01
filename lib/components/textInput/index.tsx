@@ -29,7 +29,7 @@ const Input = ({
         {...rest}
       />
       {error?.length && (
-        <Text type="p" className="mt-1 text-start text-red-400">
+        <Text type="p" className="mt-1 text-start text-red-800">
           {error[0]}
         </Text>
       )}

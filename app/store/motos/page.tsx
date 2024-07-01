@@ -1,6 +1,6 @@
 import React from "react";
 import { getMotorcycles } from "./lib/services";
-import MotorcycleCard from "./lib/components/Card";
+import MotorcycleCard from "./lib/components/card";
 
 export default async function Motorcycles() {
   const motorcycles = await getMotorcycles();

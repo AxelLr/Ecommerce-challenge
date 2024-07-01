@@ -4,8 +4,8 @@ import Link from "next/link";
 import Text from "@/lib/components/text";
 import { LocationIcon } from "@/public/assets/icons";
 import { formatAmount } from "@/lib/utils/helpers";
-import { Motorcycle } from "../interfaces";
-import { parseMotorcycle } from "../helpers";
+import { Motorcycle } from "../../interfaces";
+import { parseMotorcycle } from "../../helpers";
 import CardSpecifications from "./CardSpecifications";
 
 interface ItemProps {

@@ -33,12 +33,9 @@ export default async function Receipt({
           reservación.
         </Text>
         <div className="border rounded-xl border-lightText p-4 md:w-[33.75rem] mt-8 flex flex-col">
-          <div className="flex flex-row items-center justify-between">
-            <Text type="h4">Resumen de tu compra</Text>
-            <Text type="span" className="text-primary">
-              PRINT
-            </Text>
-          </div>
+          <Text className="text-start" type="h4">
+            Resumen de tu reserva
+          </Text>
           <Separator />
           <Text className="text-start mb-4" type="h5">
             Productos

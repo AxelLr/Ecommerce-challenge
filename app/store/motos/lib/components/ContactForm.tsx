@@ -5,6 +5,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { State, createReservation } from "../actions";
 import { useSearchParams } from "next/navigation";
 import clsx from "clsx";
+import { FaceSmileIcon } from "@heroicons/react/24/outline";
 
 const initialState = {
   errors: {
@@ -24,11 +25,14 @@ const ReserveButton = () => {
       disabled={pending}
       type="submit"
       className={clsx(
-        "bg-secondary text-primary p-4 rounded-lg w-full text-center",
+        "bg-secondary text-primary p-4 rounded-lg w-full text-center flex flex-row justify-center items-center",
         pending && "opacity-30"
       )}
     >
       Reservar
+      {pending && (
+        <FaceSmileIcon className="animate-spin h-5 w-5 text-primary ml-1" />
+      )}
     </button>
   );
 };

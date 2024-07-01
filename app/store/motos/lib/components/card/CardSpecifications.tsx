@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import React from "react";
 import { CategoryIcon, EngineIcon, ModelIcon } from "@/public/assets/icons";
-import { Motorcycle } from "../interfaces";
-import { parseMotorcycle } from "../helpers";
+import { Motorcycle } from "../../interfaces";
+import { parseMotorcycle } from "../../helpers";
 import Image from "next/image";
 import Text from "@/lib/components/text";
 
