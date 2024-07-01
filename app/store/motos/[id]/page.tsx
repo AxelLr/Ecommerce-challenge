@@ -48,7 +48,7 @@ export default async function MotorcycleDetails({
 
   return (
     <main className="pt-8 pb-40">
-      <section className="grid md:gap-4 md:items-center md:justify-center md:grid-cols-2 ">
+      <section className="grid md:gap-4 md:items-center md:justify-center md:grid-cols-2">
         <div className="w-[100vw] overflow-hidden md:w-full lg:justify-self-end lg:w-[30rem] lg:self-start">
           <Breadcrumbs
             breadcrumbs={[

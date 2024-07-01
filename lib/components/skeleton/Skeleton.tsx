@@ -6,7 +6,7 @@ const Skeleton = ({ className }: { className: string }) => {
     <div
       role="status"
       className={clsx(
-        "flex items-center justify-center max-w-sm  bg-gray-100 rounded-lg animate-pulse dark:bg-gray-200",
+        "flex items-center justify-center   bg-gray-100 rounded-lg animate-pulse dark:bg-gray-200",
         className
       )}
     >
